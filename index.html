@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Optimushttp by nisrulz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Optimushttp</h1>
+        <p>Android library that simplifys networking in android via an async http client</p>
+        <p class="view"><a href="https://github.com/nisrulz/OptimusHTTP">View the Project on GitHub <small>nisrulz/OptimusHTTP</small></a></p>
+        <ul>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration</h1>
+
+<ul>
+<li>OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency</li>
+</ul>
+
+<div class="highlight highlight-source-groovy-gradle"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.github.nisrulz:optimushttp:1.0.0<span class="pl-pds">'</span></span></pre></div>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<ul>
+<li>Setup your SERVER url</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-c">// Link obtained from : http://requestb.in/</span>
+<span class="pl-smi">String</span> <span class="pl-c1">SERVER</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>http://requestb.in/168uy1z1<span class="pl-pds">"</span></span>;</pre></div>
+
+<ul>
+<li>Create an instance of the <strong><em>OptimusHTTP</em></strong> class</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre> <span class="pl-smi">OptimusHTTP</span> client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">OptimusHTTP</span>();</pre></div>
+
+<ul>
+<li>Next if in debug stage, enable logs</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>enableDebugging();</pre></div>
+
+<ul>
+<li>Define parameters to be sent with the request</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">ArrayMap&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> params <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayMap&lt;&gt;</span>();
+params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>abc@abc.com<span class="pl-pds">"</span></span>);
+params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>pass<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>abc<span class="pl-pds">"</span></span>);</pre></div>
+
+<ul>
+<li>
+<p>Define configurations for the request</p>
+
+<ul>
+<li>Type of Method : POST/GET
+
+<ul>
+<li>POST Request</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_POST</span>);</pre></div>
+
+<ul>
+<li>GET Request</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_GET</span>);</pre></div>
+
+<ul>
+<li>Type of Mode : PARALLEL/SEQ
+
+<ul>
+<li>Parallel Request</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMode(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>MODE_PARALLEL</span>);</pre></div>
+
+<ul>
+<li>Sequential Request</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMode(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>MODE_SEQ</span>);</pre></div>
+</li>
+<li>
+<p>To make a request create an object of <strong>HttpReq</strong> class.</p>
+
+<blockquote>
+<p>The <strong><em>client.makeRequest()</em></strong> function returns reference to each <strong><em>HttpReq</em></strong> object created which you can save in an <em>ArrayList</em> and then later on call cancel function on them to <em>cancel</em> the requests</p>
+</blockquote>
+
+<div class="highlight highlight-source-java"><pre>
+<span class="pl-k">ArrayList&lt;<span class="pl-smi">HttpReq</span>&gt;</span> refHttpReqList <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;&gt;</span>();
+<span class="pl-k">try</span> {
+     <span class="pl-c">// makeRequest() returns the reference of the request made</span>
+     <span class="pl-c">// which can be used later to call the cancelReq() if required</span>
+     <span class="pl-c">// if no request is made the makeRequest() returns null</span>
+    <span class="pl-smi">HttpReq</span> req <span class="pl-k">=</span> client<span class="pl-k">.</span>makeRequest(<span class="pl-smi">MainActivity</span><span class="pl-k">.</span><span class="pl-v">this</span>, <span class="pl-c1">SERVER</span>, params, responseListener);
+        <span class="pl-k">if</span> (req <span class="pl-k">!=</span> <span class="pl-c1">null</span>)
+            refHttpReqList<span class="pl-k">.</span>add(req);
+} <span class="pl-k">catch</span> (<span class="pl-smi">Exception</span> e) {
+        e<span class="pl-k">.</span>printStackTrace();
+}</pre></div>
+</li>
+<li><p>To cancel one requests</p></li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>cancelReq(req);</pre></div>
+
+<ul>
+<li>To cancel all requests</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">if</span> (refHttpReqList<span class="pl-k">.</span>size() <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> refHttpReqList<span class="pl-k">.</span>size(); i<span class="pl-k">++</span>)
+        client<span class="pl-k">.</span>cancelReq(refHttpReqList<span class="pl-k">.</span>get(i));
+    refHttpReqList<span class="pl-k">.</span>clear();
+}</pre></div>
+
+<ul>
+<li>Implement the Callback</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-c">// Listener for the Response received from server</span>
+<span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">OptimusHTTP</span><span class="pl-k">.</span><span class="pl-smi">ResponseListener</span> responseListener <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">OptimusHTTP</span>.<span class="pl-smi">ResponseListener</span>() {
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onSuccess</span>(<span class="pl-smi">String</span> <span class="pl-v">msg</span>) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(msg);
+        }
+
+        <span class="pl-k">@Override</span>
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onFailure</span>(<span class="pl-smi">String</span> <span class="pl-v">msg</span>) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(msg);
+        }
+    };</pre></div>
+
+<h2></h2>
+
+<blockquote>
+<p><em>NOTE : Some variables used in build.gradle correspond to</em></p>
+
+<p><strong>COMPILE_SDK_VERSION</strong>=23</p>
+
+<p><strong>BUILDTOOLS_VERSION</strong>=23.0.1</p>
+
+<p><strong>VERSION_NAME</strong>=1.0.0</p>
+
+<p><strong>VERSION_CODE</strong>=1</p>
+</blockquote>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache License 2.0</a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/nisrulz">nisrulz</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
