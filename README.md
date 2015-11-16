@@ -54,8 +54,9 @@ params.put("pass", "abc");
 
 + To make a request create an object of **HttpReq** class.
 > The ***client.makeRequest()*** function returns reference to each ***HttpReq*** object created which you can save in an *ArrayList* and then later on call cancel function on them to *cancel* the requests
-	```java
 
+	```java
+	
 	ArrayList<HttpReq> refHttpReqList = new ArrayList<>();
 	try {
 	     // makeRequest() returns the reference of the request made
@@ -64,9 +65,9 @@ params.put("pass", "abc");
 	    HttpReq req = client.makeRequest(MainActivity.this, SERVER, params, responseListener);
 	        if (req != null)
 	            refHttpReqList.add(req);
-	    } catch (Exception e) {
+	} catch (Exception e) {
 	        e.printStackTrace();
-	    }
+	}
 	```
 
 + To cancel one requests
@@ -101,7 +102,8 @@ private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.Re
 
 
 
----
+-
+
 > *NOTE : Some variables used in build.gradle correspond to*
 
 > **COMPILE_SDK_VERSION**=23
