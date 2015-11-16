@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply from: 'maven-push.gradle'
+
+android {
+    signingConfigs {
+        release {
+            try {
+                keyAlias exKEYSTORE_ALIAS
+                keyPassword exKEY_PASSWORD
+                storeFile file(exKEYSTORE_FILEPATH)
+                storePassword exKEYSTORE_PASSWORD
+            }
+            catch (ex) {
+                throw new InvalidUserDataException("You should define exKEYSTORE_ALIAS, exKEYSTORE_FILEPATH, exKEYSTORE_PASSWORD and exKEY_PASSWORD in gradle.properties.") as Throwable
+            }
+        }
+    }
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+    buildToolsVersion BUILDTOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode VERSION_CODE.toInteger()
+        versionName VERSION_NAME
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+}
+
+// Place this in the 'build.gradle' of the library module
+// Task : Generate a JAR
+// Usage : In the terminal, run './gradlew jar'
+// Output : Get the jar at 'build/libs'
+
+task jar(type: Jar, dependsOn: 'assembleRelease') {
+    from fileTree(dir: 'build/intermediates/classes/release')
+}
