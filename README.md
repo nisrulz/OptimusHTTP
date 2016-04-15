@@ -1,4 +1,4 @@
-#OptimusHTTP
+#OptimusHTTP    [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) 
 
 Simplified Android Async HTTP Client
 
