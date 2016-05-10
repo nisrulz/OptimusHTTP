@@ -1,6 +1,6 @@
 #OptimusHTTP    [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) 
 
-Simplified Android Async HTTP Client
+Simplified android async HTTP client
 
 #Integration
 - OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency
