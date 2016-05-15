@@ -1,4 +1,4 @@
-#OptimusHTTP    [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) 
+#OptimusHTTP    [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true)](https://android-arsenal.com/details/1/3592)
 
 Simplified android async HTTP client
 
