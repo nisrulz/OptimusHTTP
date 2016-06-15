@@ -1,34 +1,37 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Optimushttp by nisrulz</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Optimushttp</h1>
-        <p>Android library that simplifys networking in android via an async http client</p>
-        <p class="view"><a href="https://github.com/nisrulz/OptimusHTTP">View the Project on GitHub <small>nisrulz/OptimusHTTP</small></a></p>
-        <ul>
-          <li><a href="https://github.com/nisrulz/OptimusHTTP/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/nisrulz/OptimusHTTP/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/nisrulz/OptimusHTTP">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration</h1>
+    <section class="page-header">
+      <h1 class="project-name">Optimushttp</h1>
+      <h2 class="project-tagline">Android library that simplifys networking in android via an async http client</h2>
+      <a href="https://github.com/nisrulz/OptimusHTTP" class="btn">View on GitHub</a>
+      <a href="https://github.com/nisrulz/OptimusHTTP/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/nisrulz/OptimusHTTP/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="optimushttp" class="anchor" href="#optimushttp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OptimusHTTP</h1>
+
+<p><a href="https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp"><img src="https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg" alt="Maven Central"></a> <a href="https://android-arsenal.com/api?level=9"><img src="https://img.shields.io/badge/API-9%2B-orange.svg?style=flat" alt="API"></a> <a href="https://www.javadoc.io/doc/com.github.nisrulz/optimushttp"><img src="https://www.javadoc.io/badge/com.github.nisrulz/optimushttp.svg?color=blue&amp;label=Javadoc" alt="Javadocs"></a></p>
+
+<p><a href="https://android-arsenal.com/details/1/3592"><img src="https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true" alt="Android Arsenal"></a></p>
+
+<p><a href="https://twitter.com/nisrulz"><img src="https://img.shields.io/twitter/follow/nisrulz.svg?style=social" alt="Twitter Follow"></a></p>
+
+<p>Simplified android async HTTP client</p>
+
+<h1>
+<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integration</h1>
 
 <ul>
 <li>OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency</li>
@@ -37,7 +40,7 @@
 <div class="highlight highlight-source-groovy-gradle"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.github.nisrulz:optimushttp:1.0.0<span class="pl-pds">'</span></span></pre></div>
 
 <h1>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
 
 <ul>
 <li>Setup your SERVER url</li>
@@ -156,31 +159,32 @@ params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</
         }
     };</pre></div>
 
-<h2></h2>
-
-<blockquote>
-<p><em>NOTE : Some variables used in build.gradle correspond to</em></p>
-
-<p><strong>COMPILE_SDK_VERSION</strong>=23</p>
-
-<p><strong>BUILDTOOLS_VERSION</strong>=23.0.1</p>
-
-<p><strong>VERSION_NAME</strong>=1.0.0</p>
-
-<p><strong>VERSION_CODE</strong>=1</p>
-</blockquote>
-
 <h1>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
 
-<p><a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache License 2.0</a></p>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/nisrulz">nisrulz</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+<pre><code>Copyright 2016 Nishant Srivastava
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/nisrulz/OptimusHTTP">Optimushttp</a> is maintained by <a href="https://github.com/nisrulz">nisrulz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
