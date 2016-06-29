@@ -24,17 +24,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.ArrayList;
-
 import in.excogitation.optimushttp.library.HttpReq;
 import in.excogitation.optimushttp.library.OptimusHTTP;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
   // Define a SERVER link
   // Link obtained from : http://requestb.in/
-  private final String SERVER = "http://requestb.in/168uy1z1";
+  private final String SERVER = "http://requestb.in/130toj71";
 
   // Create objects
   private OptimusHTTP client;
@@ -55,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     data = new ArrayList<>();
     data.add("POST Request");
     data.add("GET Request");
+    data.add("PUT Request");
+    data.add("DELETE Request");
     data.add("Cancel All Request");
 
     progressDialog = new ProgressDialog(this);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     lv.setAdapter(adapter);
 
     // Initialize the OptimusHTTP Client
-    client = new OptimusHTTP();
+    client = new OptimusHTTP(this);
 
     // Enable Logs
     client.enableDebugging();
@@ -80,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
       public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         switch (position) {
           case 0: {
+            // POST
             ArrayMap<String, String> params = new ArrayMap<>();
             params.put("email", "abc@abc.com");
-            params.put("pass", "abc");
+            params.put("mobileno", "000000000");
+            params.put("Key1", "value1");
+            params.put("key2", "value2");
             client.setMethod(OptimusHTTP.METHOD_POST);
             client.setMode(OptimusHTTP.MODE_PARALLEL);
             try {
@@ -91,18 +94,17 @@ public class MainActivity extends AppCompatActivity {
               // if no request is made the makeRequest() returns null
 
               progressDialog.show();
-              req = client.makeRequest(MainActivity.this, SERVER, params,
-                  new OptimusHTTP.ResponseListener() {
-                    @Override public void onSuccess(String msg) {
-                      System.out.println(msg);
-                      progressDialog.dismiss();
-                    }
+              req = client.makeRequest(SERVER, params, new OptimusHTTP.ResponseListener() {
+                @Override public void onSuccess(String msg) {
+                  System.out.println(msg);
+                  progressDialog.dismiss();
+                }
 
-                    @Override public void onFailure(String msg) {
-                      System.out.println(msg);
-                      progressDialog.dismiss();
-                    }
-                  });
+                @Override public void onFailure(String msg) {
+                  System.out.println(msg);
+                  progressDialog.dismiss();
+                }
+              });
               if (req != null) refHttpReqList.add(req);
             } catch (Exception e) {
               e.printStackTrace();
@@ -110,16 +112,15 @@ public class MainActivity extends AppCompatActivity {
           }
           break;
           case 1: {
+            // GET
             ArrayMap<String, String> params = new ArrayMap<>();
             params.put("email", "abc@abc.com");
             params.put("mobileno", "000000000");
-            params.put("Key1", "value1");
-            params.put("key2", "value2");
             client.setMethod(OptimusHTTP.METHOD_GET);
             client.setMode(OptimusHTTP.MODE_SEQ);
             try {
               progressDialog.show();
-              req = client.makeRequest(MainActivity.this, SERVER, params, responseListener);
+              req = client.makeRequest(SERVER, params, responseListener);
               if (req != null) refHttpReqList.add(req);
             } catch (Exception e) {
               e.printStackTrace();
@@ -127,6 +128,40 @@ public class MainActivity extends AppCompatActivity {
           }
           break;
           case 2: {
+            //PUT
+            ArrayMap<String, String> params = new ArrayMap<>();
+            params.put("email", "abc@abc.com");
+            params.put("mobileno", "000000000");
+            params.put("Key1", "value3");
+            params.put("key2", "value2");
+            client.setMethod(OptimusHTTP.METHOD_PUT);
+            client.setMode(OptimusHTTP.MODE_SEQ);
+            try {
+              progressDialog.show();
+              req = client.makeRequest(SERVER, params, responseListener);
+              if (req != null) refHttpReqList.add(req);
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
+          break;
+          case 3: {
+            // DELETE
+            ArrayMap<String, String> params = new ArrayMap<>();
+            client.setMethod(OptimusHTTP.METHOD_DELETE);
+            client.setMode(OptimusHTTP.MODE_SEQ);
+            try {
+              progressDialog.show();
+              req = client.makeRequest(SERVER, params, responseListener);
+              if (req != null) refHttpReqList.add(req);
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
+          break;
+          case 4: {
+            // Cancel All
+
             if (refHttpReqList.size() > 0) {
               view.setEnabled(false);
               for (int i = 0; i < refHttpReqList.size(); i++)
