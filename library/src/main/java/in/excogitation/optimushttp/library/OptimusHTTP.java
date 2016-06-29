@@ -41,6 +41,8 @@ public class OptimusHTTP {
    * The constant METHOD_POST.
    */
   public final static int METHOD_POST = 1;
+  public final static int METHOD_PUT = 100;
+  public final static int METHOD_DELETE = 101;
   /**
    * The constant MODE_SEQ.
    */
@@ -127,7 +129,14 @@ public class OptimusHTTP {
     } else if (method == METHOD_POST) {
       pkg.setMethod("POST");
       if (DEBUG) Log.d(LOGTAG, "*---------------------- POST Request ----------------------*");
+    } else if (method == METHOD_PUT) {
+      pkg.setMethod("PUT");
+      if (DEBUG) Log.d(LOGTAG, "*---------------------- PUT Request ----------------------*");
+    } else if (method == METHOD_DELETE) {
+      pkg.setMethod("DELETE");
+      if (DEBUG) Log.d(LOGTAG, "*---------------------- DELETE Request ----------------------*");
     }
+
     pkg.setUri(url);
     pkg.setParams(params);
 

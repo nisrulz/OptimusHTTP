@@ -111,7 +111,7 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
       connection.setReadTimeout(10000);
       connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
       connection.connect();
-      if (params[0].getMethod().equals("POST")) {
+      if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT") ) {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
         writer.write(params[0].getEncodedParams());
         writer.flush();
