@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package in.excogitation.optimushttp.library;
+package github.nisrulz.optimushttp;
 
 import android.annotation.TargetApi;
 import android.content.Context;

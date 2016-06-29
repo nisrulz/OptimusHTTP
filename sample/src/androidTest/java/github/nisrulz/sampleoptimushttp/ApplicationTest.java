@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package in.excogitation.library_optimushttp;
+package github.nisrulz.sampleoptimushttp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

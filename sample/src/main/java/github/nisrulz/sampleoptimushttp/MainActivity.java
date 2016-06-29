@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package in.excogitation.library_optimushttp;
+package github.nisrulz.sampleoptimushttp;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -24,8 +24,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import in.excogitation.optimushttp.library.HttpReq;
-import in.excogitation.optimushttp.library.OptimusHTTP;
+import github.nisrulz.optimushttp.HttpReq;
+import github.nisrulz.optimushttp.OptimusHTTP;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package in.excogitation.optimushttp.library;
+package github.nisrulz.optimushttp;
 
 import android.support.v4.util.ArrayMap;
 import java.io.UnsupportedEncodingException;
