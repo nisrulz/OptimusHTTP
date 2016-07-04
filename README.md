@@ -1,10 +1,16 @@
 #OptimusHTTP
 
+
+### Specs
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) [![API](https://img.shields.io/badge/API-9%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=9) [![Javadocs](https://www.javadoc.io/badge/com.github.nisrulz/optimushttp.svg?color=blue&label=Javadoc)](https://www.javadoc.io/doc/com.github.nisrulz/optimushttp)
 
+### Featured in
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true)](https://android-arsenal.com/details/1/3592) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg)](https://www.androiddevdigest.com/digest-100/)
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz)
+### Show some :heart:
+[![GitHub stars](https://img.shields.io/github/stars/nisrulz/optimushttp.svg?style=social&label=Star)](https://github.com/nisrulz/optimushttp) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/optimushttp.svg?style=social&label=Fork)](https://github.com/nisrulz/optimushttp/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/optimushttp.svg?style=social&label=Watch)](https://github.com/nisrulz/optimushttp) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/optimushttp)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
+
 
 Simplified android async HTTP client
 
@@ -48,6 +54,15 @@ params.put("pass", "abc");
   ```java
   client.setMethod(OptimusHTTP.METHOD_GET);
   ```
+	 + PUT Request
+  ```java
+  client.setMethod(OptimusHTTP.METHOD_PUT);
+  ```
+	 + DELETE Request
+  ```java
+  client.setMethod(OptimusHTTP.METHOD_DELETE);
+  ```
+  
    + Type of Mode : PARALLEL/SEQ
 	 + Parallel Request
   ```java
@@ -105,6 +120,19 @@ private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.Re
         }
     };
 ```
+
+# Pull Requests
+I welcome and encourage all pull requests. It usually will take me within 24-48 hours to respond to any issue or request. Here are some basic rules to follow to ensure timely addition of your request:
+  1. Match coding style (braces, spacing, etc.) This is best achieved using `CMD`+`Option`+`L` (Reformat code) on Mac (not sure for Windows) with Android Studio defaults.
+  2. If its a feature, bugfix, or anything please only change code to what you specify.
+  3. Please keep PR titles easy to read and descriptive of changes, this will make them easier to merge :)
+  4. Pull requests _must_ be made against `develop` branch. Any other branch (unless specified by the maintainers) will get rejected.
+  5. Check for existing [issues](https://github.com/nisrulz/optimushttp/issues) first, before filing an issue.  
+  6. Have fun!
+
+### Created & Maintained By
+[Nishant Srivastava](https://github.com/nisrulz) ([@nisrulz](https://www.twitter.com/nisrulz))
+
 
 License
 =======
