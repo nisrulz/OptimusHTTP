@@ -17,7 +17,7 @@ Simplified android async HTTP client
 #Integration
 - OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency
 ```gradle
-compile 'com.github.nisrulz:optimushttp:1.0.0'
+compile 'com.github.nisrulz:optimushttp:1.1.0'
 ```
 
 #Usage
