@@ -46,32 +46,32 @@ params.put("pass", "abc");
 
 + Define configurations for the request
  + Type of Method : POST/GET
-	 + POST Request
-  ```java
-  client.setMethod(OptimusHTTP.METHOD_POST);
-  ```
-	 + GET Request
-  ```java
-  client.setMethod(OptimusHTTP.METHOD_GET);
-  ```
-	 + PUT Request
-  ```java
-  client.setMethod(OptimusHTTP.METHOD_PUT);
-  ```
-	 + DELETE Request
-  ```java
-  client.setMethod(OptimusHTTP.METHOD_DELETE);
-  ```
+     + POST Request
+    ```java
+    client.setMethod(OptimusHTTP.METHOD_POST);
+    ```
+     + GET Request
+    ```java
+    client.setMethod(OptimusHTTP.METHOD_GET);
+    ```
+     + PUT Request
+    ```java
+    client.setMethod(OptimusHTTP.METHOD_PUT);
+    ```
+     + DELETE Request
+    ```java
+    client.setMethod(OptimusHTTP.METHOD_DELETE);
+    ```
   
-   + Type of Mode : PARALLEL/SEQ
-	 + Parallel Request
-  ```java
-  client.setMode(OptimusHTTP.MODE_PARALLEL);
-  ```
-	 + Sequential Request
-  ```java
-  client.setMode(OptimusHTTP.MODE_SEQ);
-  ```
+  + Type of Mode : PARALLEL/SEQ
+     + Parallel Request
+    ```java
+    client.setMode(OptimusHTTP.MODE_PARALLEL);
+    ```
+     + Sequential Request
+    ```java
+    client.setMode(OptimusHTTP.MODE_SEQ);
+    ```
 
 + To make a request create an object of **HttpReq** class.
 > The ***client.makeRequest()*** function returns reference to each ***HttpReq*** object created which you can save in an *ArrayList* and then later on call cancel function on them to *cancel* the requests
