@@ -41,7 +41,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.android.support:support-core-utils:24.2.1'
+    compile 'com.android.support:support-core-utils:24.2.1'
 }
 
 
