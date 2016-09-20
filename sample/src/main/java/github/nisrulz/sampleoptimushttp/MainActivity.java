@@ -100,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
             // Set Mode
             client.setMode(OptimusHTTP.MODE_PARALLEL);
             // Set Connect Timeout
-            client.setConnectTimeout(15 * 1000);
+            client.setConnectTimeout(10 * 1000); //ms
             // Set Read Timeout
-            client.setReadTimeout(15 * 1000);
+            client.setReadTimeout(10 * 1000); //ms
             // Set Content Type
             client.setContentType(OptimusHTTP.CONTENT_TYPE_JSON);
             // Create a map of header key value pair and set headers to the client
