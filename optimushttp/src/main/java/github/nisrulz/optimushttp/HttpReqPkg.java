@@ -44,7 +44,8 @@ class HttpReqPkg {
   /**
    * Sets uri.
    *
-   * @param uri the uri
+   * @param uri
+   *     the uri
    */
   public void setUri(String uri) {
     this.uri = uri;
@@ -62,7 +63,8 @@ class HttpReqPkg {
   /**
    * Sets username.
    *
-   * @param username the username
+   * @param username
+   *     the username
    */
   public void setUsername(String username) {
     this.username = username;
@@ -80,7 +82,8 @@ class HttpReqPkg {
   /**
    * Sets password.
    *
-   * @param password the password
+   * @param password
+   *     the password
    */
   public void setPassword(String password) {
     this.password = password;
@@ -98,7 +101,8 @@ class HttpReqPkg {
   /**
    * Sets method.
    *
-   * @param method the method
+   * @param method
+   *     the method
    */
   public void setMethod(String method) {
     this.method = method;
@@ -116,7 +120,8 @@ class HttpReqPkg {
   /**
    * Sets params.
    *
-   * @param params the params
+   * @param params
+   *     the params
    */
   public void setParams(Map<String, String> params) {
     this.params = params;
@@ -125,8 +130,10 @@ class HttpReqPkg {
   /**
    * Sets param.
    *
-   * @param key the key
-   * @param value the value
+   * @param key
+   *     the key
+   * @param value
+   *     the value
    */
   public void setParam(String key, String value) {
     params.put(key, value);

@@ -60,7 +60,8 @@ public class OptimusHTTP {
   /**
    * Instantiates a new Optimus http.
    *
-   * @param context the context
+   * @param context
+   *     the context
    */
   public OptimusHTTP(Context context) {
     this.context = context;
@@ -87,7 +88,8 @@ public class OptimusHTTP {
   /**
    * Sets method.
    *
-   * @param method the method
+   * @param method
+   *     the method
    */
   public void setMethod(int method) {
     this.method = method;
@@ -105,7 +107,8 @@ public class OptimusHTTP {
   /**
    * Sets mode.
    *
-   * @param mode the mode
+   * @param mode
+   *     the mode
    */
   public void setMode(int mode) {
     this.mode = mode;
@@ -114,9 +117,12 @@ public class OptimusHTTP {
   /**
    * Make the Request
    *
-   * @param url the url
-   * @param params the params
-   * @param listener the listener
+   * @param url
+   *     the url
+   * @param params
+   *     the params
+   * @param listener
+   *     the listener
    * @return HttpReq reference if a request is made null if no request is made
    */
   public HttpReq makeRequest(String url, ArrayMap<String, String> params,
@@ -125,16 +131,27 @@ public class OptimusHTTP {
     HttpReqPkg pkg = new HttpReqPkg();
     if (method == METHOD_GET) {
       pkg.setMethod("GET");
-      if (DEBUG) Log.d(LOGTAG, "*---------------------- GET Request ----------------------*");
-    } else if (method == METHOD_POST) {
+      if (DEBUG) {
+        Log.d(LOGTAG, "*---------------------- GET Request ----------------------*");
+      }
+    }
+    else if (method == METHOD_POST) {
       pkg.setMethod("POST");
-      if (DEBUG) Log.d(LOGTAG, "*---------------------- POST Request ----------------------*");
-    } else if (method == METHOD_PUT) {
+      if (DEBUG) {
+        Log.d(LOGTAG, "*---------------------- POST Request ----------------------*");
+      }
+    }
+    else if (method == METHOD_PUT) {
       pkg.setMethod("PUT");
-      if (DEBUG) Log.d(LOGTAG, "*---------------------- PUT Request ----------------------*");
-    } else if (method == METHOD_DELETE) {
+      if (DEBUG) {
+        Log.d(LOGTAG, "*---------------------- PUT Request ----------------------*");
+      }
+    }
+    else if (method == METHOD_DELETE) {
       pkg.setMethod("DELETE");
-      if (DEBUG) Log.d(LOGTAG, "*---------------------- DELETE Request ----------------------*");
+      if (DEBUG) {
+        Log.d(LOGTAG, "*---------------------- DELETE Request ----------------------*");
+      }
     }
 
     pkg.setUri(url);
@@ -143,12 +160,16 @@ public class OptimusHTTP {
     if (isOnline()) {
       if (mode == MODE_SEQ) {
         SeqAsyncTask(req, pkg, listener);
-      } else if (mode == MODE_PARALLEL) {
+      }
+      else if (mode == MODE_PARALLEL) {
         ParallelAsyncTask(req, pkg, listener);
       }
       return req;
-    } else {
-      if (DEBUG) Log.d(LOGTAG, "Not connected to Internet ! OptimusHTTP didn't make a request!");
+    }
+    else {
+      if (DEBUG) {
+        Log.d(LOGTAG, "Not connected to Internet ! OptimusHTTP didn't make a request!");
+      }
     }
     return null;
   }
@@ -159,7 +180,8 @@ public class OptimusHTTP {
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
       req.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, p);
-    } else {
+    }
+    else {
       req.execute(p);
     }
   }
@@ -172,13 +194,16 @@ public class OptimusHTTP {
   /**
    * Cancel req.
    *
-   * @param req the req
+   * @param req
+   *     the req
    */
   public void cancelReq(HttpReq req) {
     if (req != null && (req.getStatus() == AsyncTask.Status.RUNNING
         || req.getStatus() == AsyncTask.Status.PENDING)) {
       req.cancel(true);
-      if (DEBUG) Log.d(LOGTAG, "*---------------------- Request Cancelled ----------------*");
+      if (DEBUG) {
+        Log.d(LOGTAG, "*---------------------- Request Cancelled ----------------*");
+      }
     }
   }
 
@@ -196,14 +221,16 @@ public class OptimusHTTP {
     /**
      * On success.
      *
-     * @param msg the msg
+     * @param msg
+     *     the msg
      */
     void onSuccess(String msg);
 
     /**
      * On failure.
      *
-     * @param msg the msg
+     * @param msg
+     *     the msg
      */
     void onFailure(String msg);
   }

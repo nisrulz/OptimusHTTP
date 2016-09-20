@@ -48,17 +48,20 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
   /**
    * Sets on results listener.
    *
-   * @param listener the listener
+   * @param listener
+   *     the listener
    */
   public void setOnResultsListener(OptimusHTTP.ResponseListener listener) {
     this.listener = listener;
   }
 
-  @Override protected void onPreExecute() {
+  @Override
+  protected void onPreExecute() {
     disableConnectionReuseIfNecessary();
   }
 
-  @Override protected String doInBackground(HttpReqPkg... params) {
+  @Override
+  protected String doInBackground(HttpReqPkg... params) {
 
     URL url;
     BufferedReader reader = null;
@@ -100,11 +103,14 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
 
       if (params[0].getMethod().equals("POST")) {
         connection.setRequestMethod("POST");
-      } else if (params[0].getMethod().equals("GET")) {
+      }
+      else if (params[0].getMethod().equals("GET")) {
         connection.setRequestMethod("GET");
-      }else if (params[0].getMethod().equals("PUT")) {
+      }
+      else if (params[0].getMethod().equals("PUT")) {
         connection.setRequestMethod("PUT");
-      } else if (params[0].getMethod().equals("DELETE")) {
+      }
+      else if (params[0].getMethod().equals("DELETE")) {
         connection.setRequestMethod("DELETE");
       }
 
@@ -113,7 +119,7 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
       connection.setReadTimeout(10000);
       connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
       connection.connect();
-      if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT") ) {
+      if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT")) {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
         writer.write(params[0].getEncodedParams());
         writer.flush();
@@ -126,7 +132,8 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
       resMsg = connection.getResponseMessage();
       if (resCode != HttpURLConnection.HTTP_OK) {
         in = connection.getErrorStream();
-      } else {
+      }
+      else {
         in = connection.getInputStream();
       }
       reader = new BufferedReader(new InputStreamReader(in));
@@ -156,9 +163,12 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
     return null;
   }
 
-  @Override protected void onPostExecute(String result) {
+  @Override
+  protected void onPostExecute(String result) {
 
-    if (listener != null && result != null) listener.onSuccess(result);
+    if (listener != null && result != null) {
+      listener.onSuccess(result);
+    }
   }
 
   private void disableConnectionReuseIfNecessary() {
