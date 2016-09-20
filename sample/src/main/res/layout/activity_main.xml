@@ -14,16 +14,44 @@
   ~ limitations under the License.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				xmlns:tools="http://schemas.android.com/tools"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				tools:context=".MainActivity">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
 
-	<ListView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:id="@+id/listView"
-		android:layout_alignParentTop="true"
-		android:layout_centerHorizontal="true"/>
+  <ListView
+      android:id="@+id/listView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      />
+
+  <TextView
+      android:id="@+id/txt_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/listView"
+      android:background="@android:color/background_dark"
+      android:gravity="center_horizontal|center_vertical"
+      android:text="Response"
+      android:padding="10dp"
+      android:textSize="20sp"
+      android:textColor="@android:color/white"
+      />
+
+  <TextView
+      android:id="@+id/txt_res"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentBottom="true"
+      android:layout_below="@+id/txt_title"
+      android:background="@android:color/background_dark"
+      android:gravity="center_horizontal|center_vertical"
+      android:textColor="@android:color/white"
+      />
+
 </RelativeLayout>

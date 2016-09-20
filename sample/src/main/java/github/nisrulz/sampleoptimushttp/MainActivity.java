@@ -24,15 +24,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import github.nisrulz.optimushttp.HttpReq;
 import github.nisrulz.optimushttp.OptimusHTTP;
 import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
   // Define a SERVER link
-  // Link obtained from : http://requestb.in/
-  private final String SERVER = "http://requestb.in/130toj71";
+  private final String SERVER = "http://uinames.com/api/";
 
   // Create objects
   private OptimusHTTP client;
@@ -45,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
   private ArrayAdapter<String> adapter;
   ProgressDialog progressDialog;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  TextView textView_res;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
     progressDialog = new ProgressDialog(this);
     progressDialog.setMessage("Connecting");
+
+    textView_res = (TextView) findViewById(R.id.txt_res);
 
     //ListView
     lv = (ListView) findViewById(R.id.listView);
@@ -95,17 +102,21 @@ public class MainActivity extends AppCompatActivity {
 
               progressDialog.show();
               req = client.makeRequest(SERVER, params, new OptimusHTTP.ResponseListener() {
-                @Override public void onSuccess(String msg) {
-                  System.out.println(msg);
+                @Override
+                public void onSuccess(String msg) {
                   progressDialog.dismiss();
+                  getInfoFromJson(msg);
                 }
 
-                @Override public void onFailure(String msg) {
-                  System.out.println(msg);
+                @Override
+                public void onFailure(String msg) {
                   progressDialog.dismiss();
+                  loadInfo(msg);
                 }
               });
-              if (req != null) refHttpReqList.add(req);
+              if (req != null) {
+                refHttpReqList.add(req);
+              }
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -121,7 +132,9 @@ public class MainActivity extends AppCompatActivity {
             try {
               progressDialog.show();
               req = client.makeRequest(SERVER, params, responseListener);
-              if (req != null) refHttpReqList.add(req);
+              if (req != null) {
+                refHttpReqList.add(req);
+              }
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -139,7 +152,9 @@ public class MainActivity extends AppCompatActivity {
             try {
               progressDialog.show();
               req = client.makeRequest(SERVER, params, responseListener);
-              if (req != null) refHttpReqList.add(req);
+              if (req != null) {
+                refHttpReqList.add(req);
+              }
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -153,7 +168,9 @@ public class MainActivity extends AppCompatActivity {
             try {
               progressDialog.show();
               req = client.makeRequest(SERVER, params, responseListener);
-              if (req != null) refHttpReqList.add(req);
+              if (req != null) {
+                refHttpReqList.add(req);
+              }
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -178,15 +195,42 @@ public class MainActivity extends AppCompatActivity {
 
   // Listener for the Response received from server
   private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.ResponseListener() {
-    @Override public void onSuccess(String msg) {
+    @Override
+    public void onSuccess(String msg) {
       progressDialog.dismiss();
-      System.out.println(msg);
+      getInfoFromJson(msg);
     }
 
-    @Override public void onFailure(String msg) {
+    @Override
+    public void onFailure(String msg) {
       progressDialog.dismiss();
-      System.out.println(msg);
+      loadInfo(msg);
     }
   };
+
+  private void getInfoFromJson(String msg) {
+    JSONObject jsonObject;
+    try {
+      jsonObject = new JSONObject(msg);
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.append("Name : ").append(jsonObject.getString("name"))
+          .append(" ")
+          .append(jsonObject.getString("surname"))
+          .append("\n").append("Region : ")
+          .append(jsonObject.getString("region"))
+          .append("\n").append("Gender : ")
+          .append(jsonObject.getString("gender"))
+          .append("\n");
+
+      loadInfo(stringBuilder.toString());
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadInfo(String data) {
+    System.out.println(data);
+    textView_res.setText(data);
+  }
 }
 
