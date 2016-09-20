@@ -41,8 +41,36 @@ public class OptimusHTTP {
    * The constant METHOD_POST.
    */
   public final static int METHOD_POST = 1;
+  /**
+   * The constant METHOD_PUT.
+   */
   public final static int METHOD_PUT = 100;
+  /**
+   * The constant METHOD_DELETE.
+   */
   public final static int METHOD_DELETE = 101;
+
+  /**
+   * The constant CONTENT_TYPE_FORM_URL_ENCODED.
+   */
+  public final static String CONTENT_TYPE_FORM_URL_ENCODED = "application/x-www-form-urlencoded";
+  /**
+   * The constant CONTENT_TYPE_JSON.
+   */
+  public final static String CONTENT_TYPE_JSON = "application/json";
+  /**
+   * The constant CONTENT_TYPE_PDF.
+   */
+  public final static String CONTENT_TYPE_PDF = "application/pdf";
+  /**
+   * The constant CONTENT_TYPE_HTML.
+   */
+  public final static String CONTENT_TYPE_HTML = "text/html";
+  /**
+   * The constant CONTENT_TYPE_IMG_PNG.
+   */
+  public final static String CONTENT_TYPE_IMG_PNG = "image/png";
+
   /**
    * The constant MODE_SEQ.
    */
@@ -56,6 +84,67 @@ public class OptimusHTTP {
   private int mode;
   private boolean DEBUG = false;
   private Context context;
+
+  private int connectTimeout = 10 * 1000; //10s
+  private int readTimeout = 10 * 1000; //10s
+  private String contentType = CONTENT_TYPE_FORM_URL_ENCODED;
+
+  /**
+   * Gets connect timeout.
+   *
+   * @return the connect timeout
+   */
+  public int getConnectTimeout() {
+    return connectTimeout;
+  }
+
+  /**
+   * Gets read timeout.
+   *
+   * @return the read timeout
+   */
+  public int getReadTimeout() {
+    return readTimeout;
+  }
+
+  /**
+   * Gets content type.
+   *
+   * @return the content type
+   */
+  public String getContentType() {
+    return contentType;
+  }
+
+  /**
+   * Sets connect timeout.
+   *
+   * @param timeInMs
+   *     the time in ms
+   */
+  public void setConnectTimeout(int timeInMs) {
+    this.connectTimeout = timeInMs;
+  }
+
+  /**
+   * Sets read timeout.
+   *
+   * @param timeInMs
+   *     the time in ms
+   */
+  public void setReadTimeout(int timeInMs) {
+    this.readTimeout = timeInMs;
+  }
+
+  /**
+   * Sets content type.
+   *
+   * @param contentType
+   *     the content type
+   */
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
 
   /**
    * Instantiates a new Optimus http.
@@ -127,7 +216,7 @@ public class OptimusHTTP {
    */
   public HttpReq makeRequest(String url, ArrayMap<String, String> params,
       ResponseListener listener) {
-    HttpReq req = new HttpReq();
+    HttpReq req = new HttpReq(connectTimeout, readTimeout, contentType);
     HttpReqPkg pkg = new HttpReqPkg();
     if (method == METHOD_GET) {
       pkg.setMethod("GET");

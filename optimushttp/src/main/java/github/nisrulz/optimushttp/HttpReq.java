@@ -35,6 +35,10 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
   private int resCode;
   private String resMsg;
 
+  private int connectTimeout = 10 * 1000; //10s
+  private int readTimeout = 10 * 1000; //10s
+  private String contentType = "application/x-www-form-urlencoded";
+
   private OptimusHTTP.ResponseListener listener;
 
   /**
@@ -43,6 +47,24 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
   public HttpReq() {
     resCode = 0;
     resMsg = "na";
+  }
+
+  /**
+   * Instantiates a new Http req.
+   *
+   * @param connectTimeout
+   *     the connect timeout
+   * @param readTimeout
+   *     the read timeout
+   * @param contentType
+   *     the content type
+   */
+  public HttpReq(int connectTimeout, int readTimeout, String contentType) {
+    resCode = 0;
+    resMsg = "na";
+    this.connectTimeout = connectTimeout;
+    this.readTimeout = readTimeout;
+    this.contentType = contentType;
   }
 
   /**
@@ -114,10 +136,11 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
         connection.setRequestMethod("DELETE");
       }
 
-      // give it 15 seconds to respond
-      connection.setConnectTimeout(10 * 1000);
-      connection.setReadTimeout(10000);
-      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+      // give it x seconds to respond
+      connection.setConnectTimeout(connectTimeout);
+      connection.setReadTimeout(readTimeout);
+      connection.setRequestProperty("Content-Type", contentType);
+
       connection.connect();
       if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT")) {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());

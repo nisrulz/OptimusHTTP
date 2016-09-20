@@ -95,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
             params.put("key2", "value2");
             client.setMethod(OptimusHTTP.METHOD_POST);
             client.setMode(OptimusHTTP.MODE_PARALLEL);
+            client.setConnectTimeout(15 * 1000);
+            client.setReadTimeout(10 * 1000);
+            client.setContentType(OptimusHTTP.CONTENT_TYPE_JSON);
             try {
               // makeRequest() returns the reference of the request made
               // which can be used later to call the cancelReq() if required
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             params.put("mobileno", "000000000");
             client.setMethod(OptimusHTTP.METHOD_GET);
             client.setMode(OptimusHTTP.MODE_SEQ);
+
             try {
               progressDialog.show();
               req = client.makeRequest(SERVER, params, responseListener);
@@ -213,12 +217,15 @@ public class MainActivity extends AppCompatActivity {
     try {
       jsonObject = new JSONObject(msg);
       StringBuilder stringBuilder = new StringBuilder();
-      stringBuilder.append("Name : ").append(jsonObject.getString("name"))
+      stringBuilder.append("Name : ")
+          .append(jsonObject.getString("name"))
           .append(" ")
           .append(jsonObject.getString("surname"))
-          .append("\n").append("Region : ")
+          .append("\n")
+          .append("Region : ")
           .append(jsonObject.getString("region"))
-          .append("\n").append("Gender : ")
+          .append("\n")
+          .append("Gender : ")
           .append(jsonObject.getString("gender"))
           .append("\n");
 
