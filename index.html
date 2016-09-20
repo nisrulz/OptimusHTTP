@@ -19,25 +19,33 @@
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="optimushttp" class="anchor" href="#optimushttp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OptimusHTTP</h1>
+      <h3>
+<a id="specs" class="anchor" href="#specs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specs</h3>
 
-<p><a href="https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp"><img src="https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg" alt="Maven Central"></a> <a href="https://android-arsenal.com/api?level=9"><img src="https://img.shields.io/badge/API-9%2B-orange.svg?style=flat" alt="API"></a> <a href="https://www.javadoc.io/doc/com.github.nisrulz/optimushttp"><img src="https://www.javadoc.io/badge/com.github.nisrulz/optimushttp.svg?color=blue&amp;label=Javadoc" alt="Javadocs"></a></p>
+<p><a href="https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion"> <img src="https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg" alt="Download"> </a> <a href="https://android-arsenal.com/api?level=9"><img src="https://img.shields.io/badge/API-9%2B-orange.svg?style=flat" alt="API"></a></p>
 
-<p><a href="https://android-arsenal.com/details/1/3592"><img src="https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true" alt="Android Arsenal"></a></p>
+<h3>
+<a id="featured-in" class="anchor" href="#featured-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Featured in</h3>
 
-<p><a href="https://twitter.com/nisrulz"><img src="https://img.shields.io/twitter/follow/nisrulz.svg?style=social" alt="Twitter Follow"></a></p>
+<p><a href="https://android-arsenal.com/details/1/3592"><img src="https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true" alt="Android Arsenal"></a> <a href="https://www.androiddevdigest.com/digest-100/"><img src="https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg" alt="AndroidDev Digest"></a></p>
+
+<h3>
+<a id="show-some-heart" class="anchor" href="#show-some-heart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Show some <g-emoji alias="heart" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji>
+</h3>
+
+<p><a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/stars/nisrulz/sensey.svg?style=social&amp;label=Star" alt="GitHub stars"></a> <a href="https://github.com/nisrulz/sensey/fork"><img src="https://img.shields.io/github/forks/nisrulz/sensey.svg?style=social&amp;label=Fork" alt="GitHub forks"></a> <a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/watchers/nisrulz/sensey.svg?style=social&amp;label=Watch" alt="GitHub watchers"></a> <a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/followers/nisrulz.svg?style=social&amp;label=Follow" alt="GitHub followers"></a>
+<a href="https://twitter.com/nisrulz"><img src="https://img.shields.io/twitter/follow/nisrulz.svg?style=social" alt="Twitter Follow"></a> </p>
 
 <p>Simplified android async HTTP client</p>
 
 <h1>
-<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integration</h1>
+<a id="including-in-your-project" class="anchor" href="#including-in-your-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Including in your project</h1>
 
-<ul>
-<li>OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency</li>
-</ul>
+<p>OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency</p>
 
-<div class="highlight highlight-source-groovy-gradle"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.github.nisrulz:optimushttp:1.0.0<span class="pl-pds">'</span></span></pre></div>
+<div class="highlight highlight-source-groovy-gradle"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.github.nisrulz:optimushttp:{latest version}<span class="pl-pds">'</span></span></pre></div>
+
+<p>where <code>{latest version}</code> corresponds to published version in <a href="https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion"> <img src="https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg" alt="Download"> </a></p>
 
 <h1>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
@@ -46,8 +54,7 @@
 <li>Setup your SERVER url</li>
 </ul>
 
-<div class="highlight highlight-source-java"><pre><span class="pl-c">// Link obtained from : http://requestb.in/</span>
-<span class="pl-smi">String</span> <span class="pl-c1">SERVER</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>http://requestb.in/168uy1z1<span class="pl-pds">"</span></span>;</pre></div>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> <span class="pl-c1">SERVER</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>http://uinames.com/api/<span class="pl-pds">"</span></span>;</pre></div>
 
 <ul>
 <li>Create an instance of the <strong><em>OptimusHTTP</em></strong> class</li>
@@ -74,12 +81,11 @@ params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</
 <p>Define configurations for the request</p>
 
 <ul>
-<li>Type of Method : POST/GET
+<li>
+<p>Type of Method : POST/GET</p>
 
 <ul>
 <li>POST Request</li>
-</ul>
-</li>
 </ul>
 
 <div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_POST</span>);</pre></div>
@@ -91,12 +97,22 @@ params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</
 <div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_GET</span>);</pre></div>
 
 <ul>
-<li>Type of Mode : PARALLEL/SEQ
+<li>PUT Request</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_PUT</span>);</pre></div>
+
+<ul>
+<li>DELETE Request</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMethod(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>METHOD_DELETE</span>);</pre></div>
+</li>
+<li>
+<p>Type of Mode : PARALLEL/SEQ</p>
 
 <ul>
 <li>Parallel Request</li>
-</ul>
-</li>
 </ul>
 
 <div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMode(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>MODE_PARALLEL</span>);</pre></div>
@@ -106,6 +122,48 @@ params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</
 </ul>
 
 <div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setMode(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>MODE_SEQ</span>);</pre></div>
+</li>
+<li>
+<p>Setup timeout values (optional, default is 10s)</p>
+
+<ul>
+<li>Connect Timeout</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setConnectTimeout(<span class="pl-c1">10</span> <span class="pl-k">*</span> <span class="pl-c1">1000</span>);</pre></div>
+
+<ul>
+<li>Read Timeout</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>client<span class="pl-k">.</span>setReadTimeout(<span class="pl-c1">10</span> <span class="pl-k">*</span> <span class="pl-c1">1000</span>);</pre></div>
+</li>
+<li>
+<p>Setup content type (optional, deafult is <code>CONTENT_TYPE_FORM_URL_ENCODED</code>)</p>
+
+<div class="highlight highlight-source-java"><pre> client<span class="pl-k">.</span>setContentType(<span class="pl-smi">OptimusHTTP</span><span class="pl-c1"><span class="pl-k">.</span>CONTENT_TYPE_JSON</span>);</pre></div>
+
+<p>Available Types</p>
+
+<ul>
+<li><code>OptimusHTTP.CONTENT_TYPE_FORM_URL_ENCODED</code></li>
+<li><code>OptimusHTTP.CONTENT_TYPE_JSON</code></li>
+<li><code>OptimusHTTP.CONTENT_TYPE_PDF</code></li>
+<li><code>OptimusHTTP.CONTENT_TYPE_HTML</code></li>
+<li><code>OptimusHTTP.CONTENT_TYPE_IMG_PNG</code></li>
+<li><code>OptimusHTTP.CONTENT_TYPE_TEXT</code></li>
+</ul>
+</li>
+<li>
+<p>Setup Headers (optional)</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">ArrayMap&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> headerMap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayMap&lt;&gt;</span>();
+headerMap<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>Accept-Encoding<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>gzip, deflate<span class="pl-pds">"</span></span>);
+headerMap<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>Accept-Language<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>en-US<span class="pl-pds">"</span></span>);
+headerMap<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>Content-Language<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>en-US<span class="pl-pds">"</span></span>);
+client<span class="pl-k">.</span>setHeaderMap(headerMap);</pre></div>
+</li>
+</ul>
 </li>
 <li>
 <p>To make a request create an object of <strong>HttpReq</strong> class.</p>
@@ -158,6 +216,26 @@ params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</
             <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(msg);
         }
     };</pre></div>
+
+<h1>
+<a id="pull-requests" class="anchor" href="#pull-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pull Requests</h1>
+
+<p>I welcome and encourage all pull requests. It usually will take me within 24-48 hours to respond to any issue or request. Here are some basic rules to follow to ensure timely addition of your request:</p>
+
+<ol>
+<li>Match coding style (braces, spacing, etc.) This is best achieved using <code>CMD</code>+<code>Option</code>+<code>L</code> (Reformat code) on Mac (not sure for Windows) with Android Studio defaults.</li>
+<li>If its a feature, bugfix, or anything please only change code to what you specify.</li>
+<li>Please keep PR titles easy to read and descriptive of changes, this will make them easier to merge :)</li>
+<li>Pull requests <em>must</em> be made against <code>develop</code> branch. Any other branch (unless specified by the maintainers) will get rejected.</li>
+<li>Check for existing <a href="https://github.com/nisrulz/optimushttp/issues">issues</a> first, before filing an issue.<br>
+</li>
+<li>Have fun!</li>
+</ol>
+
+<h3>
+<a id="created--maintained-by" class="anchor" href="#created--maintained-by" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Created &amp; Maintained By</h3>
+
+<p><a href="https://github.com/nisrulz">Nishant Srivastava</a> (<a href="https://www.twitter.com/nisrulz">@nisrulz</a>)</p>
 
 <h1>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
