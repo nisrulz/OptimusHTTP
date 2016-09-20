@@ -2,29 +2,30 @@
 
 
 ### Specs
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nisrulz/optimushttp) [![API](https://img.shields.io/badge/API-9%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=9) [![Javadocs](https://www.javadoc.io/badge/com.github.nisrulz/optimushttp.svg?color=blue&label=Javadoc)](https://www.javadoc.io/doc/com.github.nisrulz/optimushttp)
+[ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion) [![API](https://img.shields.io/badge/API-9%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=9)
 
 ### Featured in
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true)](https://android-arsenal.com/details/1/3592) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg)](https://www.androiddevdigest.com/digest-100/)
 
 ### Show some :heart:
-[![GitHub stars](https://img.shields.io/github/stars/nisrulz/optimushttp.svg?style=social&label=Star)](https://github.com/nisrulz/optimushttp) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/optimushttp.svg?style=social&label=Fork)](https://github.com/nisrulz/optimushttp/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/optimushttp.svg?style=social&label=Watch)](https://github.com/nisrulz/optimushttp) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/optimushttp)  
+[![GitHub stars](https://img.shields.io/github/stars/nisrulz/sensey.svg?style=social&label=Star)](https://github.com/nisrulz/sensey) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/sensey.svg?style=social&label=Fork)](https://github.com/nisrulz/sensey/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/sensey.svg?style=social&label=Watch)](https://github.com/nisrulz/sensey) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/sensey)
 [![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
 
 
 Simplified android async HTTP client
 
-#Integration
-- OptimusHTTP is available in the MavenCentral, so getting it is as simple as adding it as a dependency
+# Including in your project
+OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency
 ```gradle
-compile 'com.github.nisrulz:optimushttp:1.1.0'
+compile 'com.github.nisrulz:optimushttp:{latest version}'
 ```
+where `{latest version}` corresponds to published version in [ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion)
+
 
 #Usage
 + Setup your SERVER url
 ```java
-// Link obtained from : http://requestb.in/
-String SERVER = "http://requestb.in/168uy1z1";
+String SERVER = "http://uinames.com/api/";
 ```
 
 + Create an instance of the ***OptimusHTTP*** class
@@ -72,6 +73,39 @@ params.put("pass", "abc");
     ```java
     client.setMode(OptimusHTTP.MODE_SEQ);
     ```
+
+  + Setup timeout values (optional, default is 10s)
+      + Connect Timeout
+     ```java
+     client.setConnectTimeout(10 * 1000);
+     ```
+      + Read Timeout
+     ```java
+     client.setReadTimeout(10 * 1000);
+     ```
+
+  + Setup content type (optional, deafult is `CONTENT_TYPE_FORM_URL_ENCODED`)
+       ```java
+       client.setContentType(OptimusHTTP.CONTENT_TYPE_JSON);
+       ```
+
+      Available Types
+
+        + `OptimusHTTP.CONTENT_TYPE_FORM_URL_ENCODED`
+        + `OptimusHTTP.CONTENT_TYPE_JSON`
+        + `OptimusHTTP.CONTENT_TYPE_PDF`
+        + `OptimusHTTP.CONTENT_TYPE_HTML`
+        + `OptimusHTTP.CONTENT_TYPE_IMG_PNG`
+        + `OptimusHTTP.CONTENT_TYPE_TEXT`
+
+  + Setup Headers (optional)
+      ```java
+      ArrayMap<String, String> headerMap = new ArrayMap<>();
+      headerMap.put("Accept-Encoding", "gzip, deflate");
+      headerMap.put("Accept-Language", "en-US");
+      headerMap.put("Content-Language", "en-US");
+      client.setHeaderMap(headerMap);
+      ```
 
 + To make a request create an object of **HttpReq** class.
 > The ***client.makeRequest()*** function returns reference to each ***HttpReq*** object created which you can save in an *ArrayList* and then later on call cancel function on them to *cancel* the requests
