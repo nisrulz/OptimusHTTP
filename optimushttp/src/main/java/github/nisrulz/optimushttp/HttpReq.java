@@ -18,6 +18,7 @@ package github.nisrulz.optimushttp;
 
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.v4.util.ArrayMap;
 import android.util.Base64;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,19 +36,13 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
   private int resCode;
   private String resMsg;
 
-  private int connectTimeout = 10 * 1000; //10s
-  private int readTimeout = 10 * 1000; //10s
-  private String contentType = "application/x-www-form-urlencoded";
+  private int connectTimeout;
+  private int readTimeout;
+  private String contentType;
+
+  private ArrayMap<String, String> headerMap = new ArrayMap<>();
 
   private OptimusHTTP.ResponseListener listener;
-
-  /**
-   * Instantiates a new Http req.
-   */
-  public HttpReq() {
-    resCode = 0;
-    resMsg = "na";
-  }
 
   /**
    * Instantiates a new Http req.
@@ -59,12 +54,15 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
    * @param contentType
    *     the content type
    */
-  public HttpReq(int connectTimeout, int readTimeout, String contentType) {
+  public HttpReq(int connectTimeout, int readTimeout, String contentType,
+      ArrayMap<String, String> headerMap) {
     resCode = 0;
     resMsg = "na";
     this.connectTimeout = connectTimeout;
     this.readTimeout = readTimeout;
     this.contentType = contentType;
+
+    this.headerMap = headerMap;
   }
 
   /**
@@ -140,6 +138,13 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
       connection.setConnectTimeout(connectTimeout);
       connection.setReadTimeout(readTimeout);
       connection.setRequestProperty("Content-Type", contentType);
+
+      for (int i = 0; i < headerMap.size(); i++) {
+        connection.setRequestProperty(headerMap.keyAt(i), headerMap.valueAt(i));
+      }
+
+      connection.setRequestProperty("Content-Length",
+          "" + params[0].getEncodedParams().getBytes().length);
 
       connection.connect();
       if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT")) {

@@ -70,6 +70,10 @@ public class OptimusHTTP {
    * The constant CONTENT_TYPE_IMG_PNG.
    */
   public final static String CONTENT_TYPE_IMG_PNG = "image/png";
+  /**
+   * The constant CONTENT_TYPE_TEXT.
+   */
+  public final static String CONTENT_TYPE_TEXT = "text/plain";
 
   /**
    * The constant MODE_SEQ.
@@ -88,6 +92,8 @@ public class OptimusHTTP {
   private int connectTimeout = 10 * 1000; //10s
   private int readTimeout = 10 * 1000; //10s
   private String contentType = CONTENT_TYPE_FORM_URL_ENCODED;
+
+  private ArrayMap<String, String> headerMap = new ArrayMap<>();
 
   /**
    * Gets connect timeout.
@@ -124,6 +130,10 @@ public class OptimusHTTP {
    */
   public void setConnectTimeout(int timeInMs) {
     this.connectTimeout = timeInMs;
+  }
+
+  public void setHeaderMap(ArrayMap<String, String> headerMap) {
+    this.headerMap = headerMap;
   }
 
   /**
@@ -216,7 +226,7 @@ public class OptimusHTTP {
    */
   public HttpReq makeRequest(String url, ArrayMap<String, String> params,
       ResponseListener listener) {
-    HttpReq req = new HttpReq(connectTimeout, readTimeout, contentType);
+    HttpReq req = new HttpReq(connectTimeout, readTimeout, contentType, headerMap);
     HttpReqPkg pkg = new HttpReqPkg();
     if (method == METHOD_GET) {
       pkg.setMethod("GET");

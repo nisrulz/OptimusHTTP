@@ -88,16 +88,29 @@ public class MainActivity extends AppCompatActivity {
         switch (position) {
           case 0: {
             // POST
+            // Create a param key value map to post in body of req
             ArrayMap<String, String> params = new ArrayMap<>();
             params.put("email", "abc@abc.com");
             params.put("mobileno", "000000000");
             params.put("Key1", "value1");
             params.put("key2", "value2");
+
+            // Set method
             client.setMethod(OptimusHTTP.METHOD_POST);
+            // Set Mode
             client.setMode(OptimusHTTP.MODE_PARALLEL);
+            // Set Connect Timeout
             client.setConnectTimeout(15 * 1000);
-            client.setReadTimeout(10 * 1000);
+            // Set Read Timeout
+            client.setReadTimeout(15 * 1000);
+            // Set Content Type
             client.setContentType(OptimusHTTP.CONTENT_TYPE_JSON);
+            // Create a map of header key value pair and set headers to the client
+            ArrayMap<String, String> headerMap = new ArrayMap<>();
+            headerMap.put("Accept-Encoding", "gzip, deflate");
+            headerMap.put("Accept-Language", "en-US");
+            headerMap.put("Content-Language", "en-US");
+            client.setHeaderMap(headerMap);
             try {
               // makeRequest() returns the reference of the request made
               // which can be used later to call the cancelReq() if required
@@ -208,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onFailure(String msg) {
       progressDialog.dismiss();
-      loadInfo(msg);
+      System.out.println(msg);
     }
   };
 
