@@ -15,12 +15,10 @@
  */
 
 apply plugin: 'com.android.library'
-// apply from: 'https://raw.github.com/nisrulz/gradle-mvn-push/master/gradle-mvn-push.gradle'
-
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.1'
+    buildToolsVersion '24.0.2'
 
     defaultConfig {
         minSdkVersion 9
@@ -43,14 +41,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.android.support:appcompat-v7:24.1.1'
-}
-
-// Place this in the 'build.gradle' of the library module
-// Task : Generate a JAR
-// Usage : In the terminal, run './gradlew jar'
-// Output : Get the jar at 'build/libs'
-
-task jar(type: Jar, dependsOn: 'assembleRelease') {
-    from fileTree(dir: 'build/intermediates/classes/release')
+    provided 'com.android.support:support-core-utils:24.2.1'
 }
