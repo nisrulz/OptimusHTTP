@@ -17,6 +17,7 @@
 package github.nisrulz.optimushttp;
 
 import android.support.v4.util.ArrayMap;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -30,6 +31,10 @@ class HttpReqPkg {
   private String username = null;
   private String password = null;
   private String method = "GET";
+  private final String POST = "POST";
+  private final String ANY = "ANY";
+  private final String DEFAULT_SEPARATOR = "=";
+  private final String JSON_SEPARATOR = ":";
   private Map<String, String> params = new ArrayMap<>();
 
   /**
@@ -142,9 +147,19 @@ class HttpReqPkg {
   /**
    * Gets encoded params.
    *
+   * Stub to keep old method
+   */
+  public String getEncodedParams(){
+    getEncodedParams(ANY,ANY);
+  }
+
+
+  /**
+   * Gets encoded params.
+   *
    * @return the encoded params
    */
-  public String getEncodedParams() {
+  public String getEncodedParams(String contentType,String method) {
     StringBuilder sb = new StringBuilder();
     String value = null;
     for (String key : params.keySet()) {
@@ -156,7 +171,13 @@ class HttpReqPkg {
       if (sb.length() > 0) {
         sb.append("&");
       }
-      sb.append(key).append("=").append(value);
+
+      String separator = "=";
+      if(contentType.equals(OptimusHTTP.CONTENT_TYPE_JSON)
+              && method.equals(this.POST)){
+        separator = ":";
+      }
+      sb.append(key).append(separator).append(value);
     }
     return sb.toString();
   }
