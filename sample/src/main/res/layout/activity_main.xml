@@ -14,44 +14,53 @@
   ~ limitations under the License.
   -->
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     >
 
-  <ListView
-      android:id="@+id/listView"
+  <LinearLayout
+      android:id="@+id/linearLayout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
-      android:layout_centerHorizontal="true"
-      />
+      android:layout_marginBottom="20dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:background="@android:color/white"
+      android:orientation="vertical"
+      >
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+  </LinearLayout>
+
 
   <TextView
       android:id="@+id/txt_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/listView"
-      android:background="@android:color/background_dark"
-      android:gravity="center_horizontal|center_vertical"
-      android:text="Response"
+      android:background="@color/primary"
+      android:gravity="center"
       android:padding="10dp"
-      android:textSize="20sp"
+      android:text="Response"
       android:textColor="@android:color/white"
+      android:textSize="20sp"
       />
 
   <TextView
       android:id="@+id/txt_res"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_alignParentBottom="true"
-      android:layout_below="@+id/txt_title"
-      android:background="@android:color/background_dark"
-      android:gravity="center_horizontal|center_vertical"
+      android:background="@color/primary"
+      android:gravity="center"
       android:textColor="@android:color/white"
       />
 
-</RelativeLayout>
+</LinearLayout>
