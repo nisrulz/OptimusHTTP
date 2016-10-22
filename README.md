@@ -11,7 +11,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/nisrulz/sensey.svg?style=social&label=Star)](https://github.com/nisrulz/sensey) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/sensey.svg?style=social&label=Fork)](https://github.com/nisrulz/sensey/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/sensey.svg?style=social&label=Watch)](https://github.com/nisrulz/sensey) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/sensey)
 [![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
 
+<center>
+![sc1](https://github.com/nisrulz/optimushttp/blob/develop/img/sc1.png)
+<br/>
 Android library that simplifies networking in android via an async http client
+</center>
 
 # Including in your project
 OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency
