@@ -17,62 +17,64 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '24.0.3'
+  compileSdkVersion 25
+  buildToolsVersion '24.0.3'
 
-    defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
-        versionCode 4
-        versionName '1.2.1'
+  defaultConfig {
+    minSdkVersion 9
+    targetSdkVersion 25
+    versionCode 4
+    versionName VERSION_NAME
+  }
+  buildTypes {
+    debug {
+      minifyEnabled false
+      debuggable true
     }
-    buildTypes {
-        debug {
-            minifyEnabled false
-            debuggable true
-        }
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
+  }
 }
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-core-utils:25.0.0'
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:support-core-utils:25.0.0'
 }
 
 
 // Bintray info
 def LIB_MODULE_NAME = 'optimushttp'
 def LIB_MODULE_DESC = 'Android library that simplifys networking in android via an async http client'
+def GITHUB_LINK = "https://github.com/nisrulz/optimushttp"
+def GITHUB_REPO = "nisrulz/optimushttp"
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'com.github.nisrulz:optimushttp'
+  bintrayRepo = 'maven'
+  bintrayName = 'com.github.nisrulz:optimushttp'
 
-    publishedGroupId = GROUP
-    libraryName = LIB_MODULE_NAME
-    artifact = LIB_MODULE_NAME // Has to be same as your library module name
+  publishedGroupId = GROUP
+  libraryName = LIB_MODULE_NAME
+  artifact = LIB_MODULE_NAME // Has to be same as your library module name
 
-    libraryDescription = LIB_MODULE_DESC
+  libraryDescription = LIB_MODULE_DESC
 
-    // Your github repo link
-    siteUrl = POM_URL
-    gitUrl = POM_GIT_URL
-    githubRepository = LIB_GITHUB_REPO
+  // Your github repo link
+  siteUrl = GITHUB_LINK
+  gitUrl = GITHUB_LINK + ".git"
+  githubRepository = GITHUB_REPO
 
-    libraryVersion = VERSION_NAME
+  libraryVersion = VERSION_NAME
 
-    developerId = POM_DEVELOPER_ID
-    developerName = POM_DEVELOPER_NAME
-    developerEmail = POM_DEVELOPER_EMAILID
+  developerId = POM_DEVELOPER_ID
+  developerName = POM_DEVELOPER_NAME
+  developerEmail = POM_DEVELOPER_EMAILID
 
-    licenseName = POM_LICENCE_NAME
-    licenseUrl = POM_LICENCE_URL
-    allLicenses = [POM_ALL_LICENCES]
+  licenseName = POM_LICENCE_NAME
+  licenseUrl = POM_LICENCE_URL
+  allLicenses = [POM_ALL_LICENCES]
 }
 
 // Place it at the end of the file
