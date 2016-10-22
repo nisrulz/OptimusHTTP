@@ -29,7 +29,7 @@ String SERVER = "http://uinames.com/api/";
 
 + Create an instance of the ***OptimusHTTP*** class
 ```java
- OptimusHTTP client = new OptimusHTTP();
+ OptimusHTTP client = new OptimusHTTP(context);
 ```
 
 + Next if in debug stage, enable logs
@@ -116,7 +116,7 @@ params.put("pass", "abc");
 	     // makeRequest() returns the reference of the request made
 	     // which can be used later to call the cancelReq() if required
 	     // if no request is made the makeRequest() returns null
-	    HttpReq req = client.makeRequest(MainActivity.this, SERVER, params, responseListener);
+	    HttpReq req = client.makeRequest(SERVER, params, responseListener);
 	        if (req != null)
 	            refHttpReqList.add(req);
 	} catch (Exception e) {
