@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Optimushttp by nisrulz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Optimushttp</h1>
-      <h2 class="project-tagline">Android library that simplifies networking in android via an async http client</h2>
-      <a href="https://github.com/nisrulz/OptimusHTTP" class="btn">View on GitHub</a>
-      <a href="https://github.com/nisrulz/OptimusHTTP/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/nisrulz/OptimusHTTP/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
-
-    <section class="main-content">
-      <h3>
+    <div class="wrapper">
+      <header>
+        <h1>Optimushttp</h1>
+        <p>Android library that simplifies networking in android via an async http client</p>
+        <p class="view"><a href="https://github.com/nisrulz/OptimusHTTP">View the Project on GitHub <small>nisrulz/OptimusHTTP</small></a></p>
+        <ul>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nisrulz/OptimusHTTP">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
 <a id="specs" class="anchor" href="#specs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specs</h3>
 
 <p><a href="https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion"> <img src="https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg" alt="Download"> </a> <a href="https://android-arsenal.com/api?level=9"><img src="https://img.shields.io/badge/API-9%2B-orange.svg?style=flat" alt="API"></a></p>
@@ -30,7 +38,7 @@
 <p><a href="https://android-arsenal.com/details/1/3592"><img src="https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true" alt="Android Arsenal"></a> <a href="https://www.androiddevdigest.com/digest-100/"><img src="https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg" alt="AndroidDev Digest"></a></p>
 
 <h3>
-<a id="show-some-heart" class="anchor" href="#show-some-heart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Show some <g-emoji alias="heart" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji>
+<a id="show-some-heart" class="anchor" href="#show-some-heart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Show some <g-emoji alias="heart" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png" ios-version="6.0">❤️</g-emoji>
 </h3>
 
 <p><a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/stars/nisrulz/sensey.svg?style=social&amp;label=Star" alt="GitHub stars"></a> <a href="https://github.com/nisrulz/sensey/fork"><img src="https://img.shields.io/github/forks/nisrulz/sensey.svg?style=social&amp;label=Fork" alt="GitHub forks"></a> <a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/watchers/nisrulz/sensey.svg?style=social&amp;label=Watch" alt="GitHub watchers"></a> <a href="https://github.com/nisrulz/sensey"><img src="https://img.shields.io/github/followers/nisrulz.svg?style=social&amp;label=Follow" alt="GitHub followers"></a>
@@ -60,7 +68,7 @@
 <li>Create an instance of the <strong><em>OptimusHTTP</em></strong> class</li>
 </ul>
 
-<div class="highlight highlight-source-java"><pre> <span class="pl-smi">OptimusHTTP</span> client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">OptimusHTTP</span>();</pre></div>
+<div class="highlight highlight-source-java"><pre> <span class="pl-smi">OptimusHTTP</span> client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">OptimusHTTP</span>(context);</pre></div>
 
 <ul>
 <li>Next if in debug stage, enable logs</li>
@@ -178,7 +186,7 @@ client<span class="pl-k">.</span>setHeaderMap(headerMap);</pre></div>
      <span class="pl-c">// makeRequest() returns the reference of the request made</span>
      <span class="pl-c">// which can be used later to call the cancelReq() if required</span>
      <span class="pl-c">// if no request is made the makeRequest() returns null</span>
-    <span class="pl-smi">HttpReq</span> req <span class="pl-k">=</span> client<span class="pl-k">.</span>makeRequest(<span class="pl-smi">MainActivity</span><span class="pl-k">.</span><span class="pl-v">this</span>, <span class="pl-c1">SERVER</span>, params, responseListener);
+    <span class="pl-smi">HttpReq</span> req <span class="pl-k">=</span> client<span class="pl-k">.</span>makeRequest(<span class="pl-c1">SERVER</span>, params, responseListener);
         <span class="pl-k">if</span> (req <span class="pl-k">!=</span> <span class="pl-c1">null</span>)
             refHttpReqList<span class="pl-k">.</span>add(req);
 } <span class="pl-k">catch</span> (<span class="pl-smi">Exception</span> e) {
@@ -254,15 +262,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 </code></pre>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/nisrulz/OptimusHTTP">Optimushttp</a> is maintained by <a href="https://github.com/nisrulz">nisrulz</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/nisrulz">nisrulz</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
