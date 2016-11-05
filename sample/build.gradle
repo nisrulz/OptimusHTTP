@@ -18,10 +18,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
-        applicationId "in.excogitation.library_optimushttp"
+        applicationId "github.nisrulz.sampleoptimushttp"
         minSdkVersion 9
         targetSdkVersion 25
         versionCode 1
@@ -37,6 +37,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion"
     compile project(':optimushttp')
 }
