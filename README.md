@@ -4,8 +4,11 @@
 ### Specs
 [ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion) [![API](https://img.shields.io/badge/API-9%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=9)
 
-### Featured in
+### Badges/Featured In
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true)](https://android-arsenal.com/details/1/3592) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg)](https://www.androiddevdigest.com/digest-100/)
+
+**Also included in**
++ [Awesome Android Newsletter #Issue 15](https://android.libhunt.com/newsletter/15)
 
 ### Show some :heart:
 [![GitHub stars](https://img.shields.io/github/stars/nisrulz/OptimusHTTP.svg?style=social&label=Star)](https://github.com/nisrulz/OptimusHTTP) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/OptimusHTTP.svg?style=social&label=Fork)](https://github.com/nisrulz/OptimusHTTP/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/OptimusHTTP.svg?style=social&label=Watch)](https://github.com/nisrulz/OptimusHTTP) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/OptimusHTTP)
