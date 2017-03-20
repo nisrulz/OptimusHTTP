@@ -28,11 +28,11 @@ task clean(type: Delete) {
 
 ext {
   //Other
-  supportLibVersion = '25.2.0'
+  supportLibVersion = '25.3.0'
 
   // Lib Info
-  libVersionCode = 5
-  libVersionName = '1.2.2'
+  libVersionCode = 6
+  libVersionName = '1.2.3'
   libPomUrl = 'https://github.com/nisrulz/optimushttp'
   libGithubRepo = 'nisrulz/optimushttp'
 
