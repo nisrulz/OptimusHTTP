@@ -30,9 +30,6 @@ import android.util.Log;
  */
 public class OptimusHTTP {
 
-  //LOGTAG
-  private final String LOGTAG = getClass().getSimpleName();
-
   /**
    * The constant METHOD_GET.
    */
@@ -49,7 +46,6 @@ public class OptimusHTTP {
    * The constant METHOD_DELETE.
    */
   public final static int METHOD_DELETE = 101;
-
   /**
    * The constant CONTENT_TYPE_FORM_URL_ENCODED.
    */
@@ -74,7 +70,6 @@ public class OptimusHTTP {
    * The constant CONTENT_TYPE_TEXT.
    */
   public final static String CONTENT_TYPE_TEXT = "text/plain";
-
   /**
    * The constant MODE_SEQ.
    */
@@ -83,7 +78,8 @@ public class OptimusHTTP {
    * The constant MODE_PARALLEL.
    */
   public final static int MODE_PARALLEL = 3;
-
+  //LOGTAG
+  private final String LOGTAG = getClass().getSimpleName();
   private int method;
   private int mode;
   private boolean DEBUG = false;
@@ -96,30 +92,24 @@ public class OptimusHTTP {
   private ArrayMap<String, String> headerMap = new ArrayMap<>();
 
   /**
+   * Instantiates a new Optimus http.
+   *
+   * @param context
+   *     the context
+   */
+  public OptimusHTTP(Context context) {
+    this.context = context;
+    setMode(MODE_SEQ);
+    setMethod(METHOD_GET);
+  }
+
+  /**
    * Gets connect timeout.
    *
    * @return the connect timeout
    */
   public int getConnectTimeout() {
     return connectTimeout;
-  }
-
-  /**
-   * Gets read timeout.
-   *
-   * @return the read timeout
-   */
-  public int getReadTimeout() {
-    return readTimeout;
-  }
-
-  /**
-   * Gets content type.
-   *
-   * @return the content type
-   */
-  public String getContentType() {
-    return contentType;
   }
 
   /**
@@ -132,8 +122,13 @@ public class OptimusHTTP {
     this.connectTimeout = timeInMs;
   }
 
-  public void setHeaderMap(ArrayMap<String, String> headerMap) {
-    this.headerMap = headerMap;
+  /**
+   * Gets read timeout.
+   *
+   * @return the read timeout
+   */
+  public int getReadTimeout() {
+    return readTimeout;
   }
 
   /**
@@ -147,6 +142,15 @@ public class OptimusHTTP {
   }
 
   /**
+   * Gets content type.
+   *
+   * @return the content type
+   */
+  public String getContentType() {
+    return contentType;
+  }
+
+  /**
    * Sets content type.
    *
    * @param contentType
@@ -156,16 +160,8 @@ public class OptimusHTTP {
     this.contentType = contentType;
   }
 
-  /**
-   * Instantiates a new Optimus http.
-   *
-   * @param context
-   *     the context
-   */
-  public OptimusHTTP(Context context) {
-    this.context = context;
-    setMode(MODE_SEQ);
-    setMethod(METHOD_GET);
+  public void setHeaderMap(ArrayMap<String, String> headerMap) {
+    this.headerMap = headerMap;
   }
 
   /**
@@ -273,6 +269,18 @@ public class OptimusHTTP {
     return null;
   }
 
+  private boolean isOnline() {
+    ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext()
+        .getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+    return netInfo != null && netInfo.isConnected();
+  }
+
+  private void SeqAsyncTask(HttpReq req, HttpReqPkg p, ResponseListener listener) {
+    req.setOnResultsListener(listener);
+    req.execute(p);
+  }
+
   @TargetApi(Build.VERSION_CODES.HONEYCOMB)
   private void ParallelAsyncTask(HttpReq req, HttpReqPkg p, ResponseListener listener) {
     req.setOnResultsListener(listener);
@@ -283,11 +291,6 @@ public class OptimusHTTP {
     else {
       req.execute(p);
     }
-  }
-
-  private void SeqAsyncTask(HttpReq req, HttpReqPkg p, ResponseListener listener) {
-    req.setOnResultsListener(listener);
-    req.execute(p);
   }
 
   /**
@@ -304,13 +307,6 @@ public class OptimusHTTP {
         Log.d(LOGTAG, "*---------------------- Request Cancelled ----------------*");
       }
     }
-  }
-
-  private boolean isOnline() {
-    ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext()
-        .getSystemService(Context.CONNECTIVITY_SERVICE);
-    NetworkInfo netInfo = cm.getActiveNetworkInfo();
-    return netInfo != null && netInfo.isConnected();
   }
 
   /**

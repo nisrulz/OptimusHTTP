@@ -35,19 +35,30 @@ public class MainActivity extends AppCompatActivity {
 
   // Define a SERVER link
   private final String SERVER = "http://uinames.com/api/";
+  ProgressDialog progressDialog;
+  TextView textView_res;
+  // Listener for the Response received from server
+  private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.ResponseListener() {
+    @Override
+    public void onSuccess(String msg) {
+      progressDialog.dismiss();
+      getInfoFromJson(msg);
+    }
 
+    @Override
+    public void onFailure(String msg) {
+      progressDialog.dismiss();
+      System.out.println(msg);
+    }
+  };
   // Create objects
   private OptimusHTTP client;
   private HttpReq req;
   private ArrayList<HttpReq> refHttpReqList;
-
   // ListView
   private ListView lv;
   private ArrayList<String> data;
   private ArrayAdapter<String> adapter;
-  ProgressDialog progressDialog;
-
-  TextView textView_res;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -209,21 +220,6 @@ public class MainActivity extends AppCompatActivity {
       }
     });
   }
-
-  // Listener for the Response received from server
-  private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.ResponseListener() {
-    @Override
-    public void onSuccess(String msg) {
-      progressDialog.dismiss();
-      getInfoFromJson(msg);
-    }
-
-    @Override
-    public void onFailure(String msg) {
-      progressDialog.dismiss();
-      System.out.println(msg);
-    }
-  };
 
   private void getInfoFromJson(String msg) {
     JSONObject jsonObject;

@@ -76,11 +76,6 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
   }
 
   @Override
-  protected void onPreExecute() {
-    disableConnectionReuseIfNecessary();
-  }
-
-  @Override
   protected String doInBackground(HttpReqPkg... params) {
 
     URL url;
@@ -189,6 +184,11 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
     }
 
     return null;
+  }
+
+  @Override
+  protected void onPreExecute() {
+    disableConnectionReuseIfNecessary();
   }
 
   @Override
