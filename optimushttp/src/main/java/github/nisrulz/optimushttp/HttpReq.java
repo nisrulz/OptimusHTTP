@@ -54,7 +54,7 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
    * @param contentType
    *     the content type
    */
-  public HttpReq(int connectTimeout, int readTimeout, String contentType,
+  public HttpReq(int connectTimeout, int readTimeout, String ",
       ArrayMap<String, String> headerMap) {
     resCode = 0;
     resMsg = "na";
@@ -144,7 +144,7 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
       connection.connect();
       if (params[0].getMethod().equals("POST") || params[0].getMethod().equals("PUT")) {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
-        writer.write(params[0].getEncodedParams());
+        writer.write(params[0].getEncodedParams(contentType , "POST"));
         writer.flush();
         writer.close();
       }
