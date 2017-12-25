@@ -1,4 +1,4 @@
-![Image](https://github.com/nisrulz/optimushttp/blob/develop/img/github_banner.png)
+![Image](/img/github_banner.png)
 
 
 ### Specs
@@ -16,12 +16,12 @@
 
 Android library that simplifies networking in android via an async http client
 
-![sc1](https://github.com/nisrulz/optimushttp/blob/develop/img/sc1.png)
+![sc1](img/sc1.png)
 
 # Including in your project
 OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency
 ```gradle
-compile 'com.github.nisrulz:optimushttp:{latest version}'
+implementation 'com.github.nisrulz:optimushttp:{latest version}'
 ```
 where `{latest version}` corresponds to published version in [ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion)
 

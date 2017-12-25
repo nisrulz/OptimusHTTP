@@ -34,7 +34,11 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
   // Define a SERVER link
-  private final String SERVER = "http://uinames.com/api/";
+  //private final String SERVER = "http://uinames.com/api/";
+
+  String SERVER = "http://api.openweathermap.org/data/2.5/weather";
+  String API_KEY = "c6e381d8c7ff98f0fee43775817cf6ad";
+
   ProgressDialog progressDialog;
   TextView textView_res;
   // Listener for the Response received from server
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSuccess(String msg) {
       progressDialog.dismiss();
+      System.out.println(msg);
       getInfoFromJson(msg);
     }
 
@@ -151,11 +156,21 @@ public class MainActivity extends AppCompatActivity {
           break;
           case 1: {
             // GET
+            //ArrayMap<String, String> params = new ArrayMap<>();
+            //params.put("email", "abc@abc.com");
+            //params.put("mobileno", "000000000");
+
             ArrayMap<String, String> params = new ArrayMap<>();
-            params.put("email", "abc@abc.com");
-            params.put("mobileno", "000000000");
+            params.put("appid", API_KEY);
+            params.put("q", "London");
+            params.put("units", "metric");
+
             client.setMethod(OptimusHTTP.METHOD_GET);
             client.setMode(OptimusHTTP.MODE_SEQ);
+            // Set Connect Timeout
+            client.setConnectTimeout(10 * 1000); //ms
+            // Set Read Timeout
+            client.setReadTimeout(10 * 1000); //ms
 
             try {
               progressDialog.show();
