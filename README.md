@@ -1,22 +1,79 @@
 ![Image](/img/github_banner.png)
 
+<h1 align="center">OptimusHTTP&nbsp;<a href="https://twitter.com/intent/tweet?text=Checkout%20OptimusHTTP%3A%20Android%20library%20that%20simplifies%20networking%20in%20android%20via%20an%20async%20http%20client%20%F0%9F%98%8E&via=nisrulz&hashtags=AndroidDev,android,library,OpenSource">
+        <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"/>
+    </a></h1>
 
-### Specs
-[ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion) [![API](https://img.shields.io/badge/API-9%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=9)
+<div align="center">
+  <strong>Android library that simplifies networking in android via an async http client.</strong>
+</div>
+<br/>
+<div align="center">
+    <!-- Bintray -->
+    <a href="https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion">
+        <img src="https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg"/>
+    </a>
+    <!-- API -->
+    <a href="https://android-arsenal.com/api?level=14">
+        <img src="https://img.shields.io/badge/API-14%2B-orange.svg?style=flat"/>
+    </a>
+    <!-- Android Arsenal -->
+    <a href="https://android-arsenal.com/details/1/3592">
+        <img src="https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true"/>
+    </a>
+    <!-- Android Dev Digest -->
+    <a href="https://www.androiddevdigest.com/digest-100/">
+        <img src="https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg"/>
+    </a>
+    <!-- GitHub stars -->
+    <a href="https://github.com/nisrulz/OptimusHTTP">
+        <img src="https://img.shields.io/github/stars/nisrulz/OptimusHTTP.svg?style=social&label=Star"/>
+    </a>
+    <!-- GitHub forks -->
+    <a href="https://github.com/nisrulz/OptimusHTTP/fork">
+        <img src="hhttps://img.shields.io/github/forks/nisrulz/OptimusHTTP.svg?style=social&label=Fork"/>
+    </a>
+    <!-- GitHub watchers -->
+    <a href="https://github.com/nisrulz/OptimusHTTP">
+        <img src="https://img.shields.io/github/watchers/nisrulz/OptimusHTTP.svg?style=social&label=Watch"/>
+    </a>
+    <!-- Say Thanks! -->
+    <a href="https://saythanks.io/to/nisrulz">
+        <img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg"/>
+    </a>
+    <a href="https://www.paypal.me/nisrulz/5">
+        <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+    </a>
+    <br/>
+     <!-- GitHub followers -->
+    <a href="https://github.com/nisrulz/OptimusHTTP">
+        <img src="https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow%20@nisrulz"/>
+    </a>
+    <!-- Twitter Follow -->
+    <a href="https://twitter.com/nisrulz">
+        <img src="https://img.shields.io/twitter/follow/nisrulz.svg?style=social"/>
+    </a>
+</div>
 
-### Badges/Featured In
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OptimusHTTP-green.svg?style=true)](https://android-arsenal.com/details/1/3592) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23100-blue.svg)](https://www.androiddevdigest.com/digest-100/)
+<div align="center">
+    Also featured in [Awesome Android Newsletter
+    <a href="https://android.libhunt.com/newsletter/15">
+         #Issue 15
+    </a>]
+</div>
 
-**Also included in**
-+ [Awesome Android Newsletter #Issue 15](https://android.libhunt.com/newsletter/15)
-
-### Show some :heart:
-[![GitHub stars](https://img.shields.io/github/stars/nisrulz/OptimusHTTP.svg?style=social&label=Star)](https://github.com/nisrulz/OptimusHTTP) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/OptimusHTTP.svg?style=social&label=Fork)](https://github.com/nisrulz/OptimusHTTP/fork) [![GitHub watchers](https://img.shields.io/github/watchers/nisrulz/OptimusHTTP.svg?style=social&label=Watch)](https://github.com/nisrulz/OptimusHTTP) [![GitHub followers](https://img.shields.io/github/followers/nisrulz.svg?style=social&label=Follow)](https://github.com/nisrulz/OptimusHTTP)
-[![Twitter Follow](https://img.shields.io/twitter/follow/nisrulz.svg?style=social)](https://twitter.com/nisrulz) 
-
-Android library that simplifies networking in android via an async http client
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://twitter.com/nisrulz">Nishant Srivastava</a> and
+  <a href="https://github.com/nisrulz/OptimusHTTP/graphs/contributors">
+    contributors
+  </a>
+</div>
+<br/>
+<br/>
 
 ![sc1](img/sc1.png)
+
 
 # Including in your project
 OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency
