@@ -115,14 +115,19 @@ public class HttpReq extends AsyncTask<HttpReqPkg, String, String> {
                 connection.setDoOutput(true);
             }
 
-            if (params[0].getMethod().equals("POST")) {
-                connection.setRequestMethod("POST");
-            } else if (params[0].getMethod().equals("GET")) {
-                connection.setRequestMethod("GET");
-            } else if (params[0].getMethod().equals("PUT")) {
-                connection.setRequestMethod("PUT");
-            } else if (params[0].getMethod().equals("DELETE")) {
-                connection.setRequestMethod("DELETE");
+            switch (params[0].getMethod()) {
+                case "POST":
+                    connection.setRequestMethod("POST");
+                    break;
+                case "GET":
+                    connection.setRequestMethod("GET");
+                    break;
+                case "PUT":
+                    connection.setRequestMethod("PUT");
+                    break;
+                case "DELETE":
+                    connection.setRequestMethod("DELETE");
+                    break;
             }
 
             // give it x seconds to respond

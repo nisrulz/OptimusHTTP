@@ -327,7 +327,11 @@ public class OptimusHTTP {
     private boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnected();
+        if (cm != null) {
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            return netInfo != null && netInfo.isConnected();
+        } else {
+            return false;
+        }
     }
 }

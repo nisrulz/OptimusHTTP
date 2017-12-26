@@ -90,12 +90,12 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Connecting");
 
-        textView_res = (TextView) findViewById(R.id.txt_res);
+        textView_res = findViewById(R.id.txt_res);
 
         //ListView
-        lv = (ListView) findViewById(R.id.listView);
+        lv = findViewById(R.id.listView);
         adapter =
-                new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, data);
+                new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, data);
         lv.setAdapter(adapter);
 
         // Initialize the OptimusHTTP Client
