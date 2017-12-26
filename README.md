@@ -1,6 +1,6 @@
 ![Image](/img/github_banner.png)
 
-<h1 align="center">OptimusHTTP&nbsp;<a href="https://twitter.com/intent/tweet?text=Checkout%20OptimusHTTP%3A%20Android%20library%20that%20simplifies%20networking%20in%20android%20via%20an%20async%20http%20client%20%F0%9F%98%8E&via=nisrulz&hashtags=AndroidDev,android,library,OpenSource">
+<h1 align="center"><a href="https://twitter.com/intent/tweet?text=Checkout%20OptimusHTTP%3A%20Android%20library%20that%20simplifies%20networking%20in%20android%20via%20an%20async%20http%20client%20%F0%9F%98%8E&via=nisrulz&hashtags=AndroidDev,android,library,OpenSource">
         <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"/>
     </a></h1>
 
@@ -72,9 +72,6 @@
 <br/>
 <br/>
 
-![sc1](img/sc1.png)
-
-
 # Including in your project
 OptimusHTTP is available in the Jcenter, so getting it as simple as adding it as a dependency
 ```gradle
@@ -83,7 +80,7 @@ implementation 'com.github.nisrulz:optimushttp:{latest version}'
 where `{latest version}` corresponds to published version in [ ![Download](https://api.bintray.com/packages/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/images/download.svg) ](https://bintray.com/nisrulz/maven/com.github.nisrulz%3Aoptimushttp/_latestVersion)
 
 
-#Usage
+# Usage
 + Setup your SERVER url
 ```java
 String SERVER = "http://uinames.com/api/";
@@ -215,6 +212,10 @@ private final OptimusHTTP.ResponseListener responseListener = new OptimusHTTP.Re
         }
     };
 ```
+
+## Screenshots
+
+![sc1](img/sc1.png)
 
 # Pull Requests
 I welcome and encourage all pull requests. It usually will take me within 24-48 hours to respond to any issue or request. Here are some basic rules to follow to ensure timely addition of your request:
