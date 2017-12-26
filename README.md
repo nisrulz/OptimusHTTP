@@ -31,7 +31,7 @@
     </a>
     <!-- GitHub forks -->
     <a href="https://github.com/nisrulz/OptimusHTTP/fork">
-        <img src="hhttps://img.shields.io/github/forks/nisrulz/OptimusHTTP.svg?style=social&label=Fork"/>
+        <img src="https://img.shields.io/github/forks/nisrulz/OptimusHTTP.svg?style=social&label=Fork"/>
     </a>
     <!-- GitHub watchers -->
     <a href="https://github.com/nisrulz/OptimusHTTP">
