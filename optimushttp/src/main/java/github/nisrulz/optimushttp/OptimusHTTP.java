@@ -22,7 +22,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.util.Log;
 
 /**

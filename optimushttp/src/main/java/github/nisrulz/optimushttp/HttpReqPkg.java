@@ -16,7 +16,7 @@
 
 package github.nisrulz.optimushttp;
 
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;

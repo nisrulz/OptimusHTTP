@@ -18,7 +18,7 @@ package github.nisrulz.optimushttp;
 
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.util.Base64;
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -20,14 +20,14 @@ ext {
             appVersionName          : '1.0',
 
             minSdk                  : 14,
-            targetSdk               : 27,
-            compileSdk              : 27,
+            targetSdk               : 28,
+            compileSdk              : 28,
 
-            androidGradlePlugin     : '3.1.2',
+            androidGradlePlugin     : '3.3.2',
             gradleBintrayPlugin     : '1.8.0',
             androidMavenGradlePlugin: '2.1',
 
-            support                 : '27.1.1',
+            support                 : '1.0.0',
 
             junit                   : '4.12',
             espresso                : '3.0.2',
@@ -39,12 +39,13 @@ ext {
     junit = [junit: "junit:junit:$versions.junit"]
 
     lifecycle = [
-            'runtime': "android.arch.lifecycle:runtime:$versions.lifeycle_runtime"
+            runtime: "android.arch.lifecycle:runtime:$versions.lifeycle_runtime"
     ]
 
     supportDeps = [
-            appcompatV7      : "com.android.support:appcompat-v7:$versions.support",
-            supportAnnotation: "com.android.support:support-annotations:$versions.support"
+            appcompatV7      : "androidx.appcompat:appcompat:$versions.support",
+            supportAnnotation: "com.android.support:support-annotations:$versions.support",
+            supportCoreUtils : "androidx.legacy:legacy-support-core-utils:$versions.support"
     ]
 
     unitTest = [

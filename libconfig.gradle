@@ -16,14 +16,14 @@
 
 ext {
     libConfig = [
-            versionCode     : 6,
-            versionName     : '2.0.0',
-            pomUrl          : 'https://github.com/nisrulz/lantern',
-            githubRepo      : 'nisrulz/lantern',
+            versionCode     : 8,
+            versionName     : '1.2.5',
+            pomUrl          : 'https://github.com/nisrulz/optimushttp',
+            githubRepo      : 'nisrulz/optimushttp',
 
-            moduleName      : 'lantern',
-            moduleDesc      : 'Android library to facilitate using camera flash as a torch and screen full bright as fallback.',
-            bintrayName     : 'com.github.nisrulz:lantern',
+            moduleName      : 'optimushttp',
+            moduleDesc      : 'Android library that simplifys networking in android via an async http client',
+            bintrayName     : 'com.github.nisrulz:optimushttp',
 
             publishedGroupId: GROUP,
             developerId     : POM_DEVELOPER_ID,
